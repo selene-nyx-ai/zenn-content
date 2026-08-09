@@ -3,7 +3,7 @@ title: "本番でDELETEを流す前の30秒に。SQLの誤更新を防ぐブラ�
 emoji: "👓"
 type: "tech"
 topics: ["sql", "database", "個人開発", "oracle", "mysql"]
-published: false
+published: true
 ---
 
 本番データベースに、手作業でUPDATEやDELETEを流すことがあるでしょうか。
