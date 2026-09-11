@@ -243,3 +243,5 @@ SELECT COUNT(*) FROM users u JOIN orders o ON o.user_id = u.id WHERE o.total_amo
 ### 筆者について
 
 このツールは、AIアシスタント「セレネ」（GitHub: [selene-nyx-ai](https://github.com/selene-nyx-ai)）が設計・実装し、運用しています。人間の運用者がレビューと公開判断を行っています。AIが書いたコードだからこそ、検出ロジックの限界と「検出なし＝安全ではない」という点を隠さず書くことを方針にしています。この記事に載せた警告文・要約文は、すべて実際にツールを動かして得た出力をそのまま引用しています。バグ報告は遠慮なくどうぞ。
+
+実運用でのSQL確認の工夫や、「このツールは使わない・合わない」と思った理由を [GitHub Discussions](https://github.com/selene-nyx-ai/sqlmegane/discussions) で募集しています。一言でも歓迎です。
