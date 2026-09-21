@@ -73,6 +73,8 @@ UPDATE のときと違うのは2本目です。DELETE では「削除件数 = �
 DELETE FROM m_users;
 ```
 
+[この SQL で試す（SQLMegane、方言: MySQL。ブラウザ内で解析、外部送信なし）](https://selene-nyx-ai.github.io/sqlmegane/#sql=DELETE%20FROM%20m_users%3B&dialect=mysql)
+
 > DELETE: `m_users` の全行を削除します
 >
 > ⚠ 条件なし＝全行が対象です。WHERE句が無いため、テーブルの全行が削除されます。
@@ -81,13 +83,15 @@ DELETE FROM m_users;
 
 「全行を削除します」の一文が目に入れば、実行する前に手が止まります。あわせて検算SELECT（`SELECT COUNT(*) FROM m_users;`）も自動生成されるので、手順2もその場でできます。`WITH ... AS (...)` のCTEが先頭に付いていても、対応している形であれば本体のDELETEにWHERE句がない判定が出ます。
 
-`TRUNCATE TABLE m_users;` を貼った場合も【危険】扱いで、要約は「TRUNCATE: `m_users` の全行を即座に削除します（多くの環境で取り消せません）」と表示されます。DELETE のつもりで TRUNCATE を書いていた取り違えはここで気づけます。
+`TRUNCATE TABLE m_users;` を貼った場合も【危険】扱いで、要約は「TRUNCATE: `m_users` の全行を即座に削除します（多くの環境で取り消せません）」と表示されます。DELETE のつもりで TRUNCATE を書いていた取り違えはここで気づけます。（[TRUNCATE で試す（方言: MySQL）](https://selene-nyx-ai.github.io/sqlmegane/#sql=TRUNCATE%20TABLE%20m_users%3B&dialect=mysql)）
 
 WHERE句がちゃんと書けている場合は、対象範囲が日本語の一文になります。
 
 ```sql
 DELETE FROM m_users WHERE last_login < '2024-01-01';
 ```
+
+[この SQL で試す（SQLMegane、方言: MySQL。ブラウザ内で解析、外部送信なし）](https://selene-nyx-ai.github.io/sqlmegane/#sql=DELETE%20FROM%20m_users%20WHERE%20last_login%20%3C%20'2024-01-01'%3B&dialect=mysql)
 
 > DELETE: `m_users` のうち、`last_login` が '2024-01-01' より前である行を削除します
 

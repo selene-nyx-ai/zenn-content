@@ -31,6 +31,8 @@ WHERE dept_id = 30
   AND status = 'ACTIVE';
 ```
 
+[この SELECT を貼った状態で SQLMegane を開く（結果の下の「更新文を作る」で UPDATE・DELETE に変換。ブラウザ内で完結、外部送信なし）](https://selene-nyx-ai.github.io/sqlmegane/#sql=SELECT%20emp_id%2C%20dept_id%2C%20status%0AFROM%20employees%0AWHERE%20dept_id%20%3D%2030%0A%20%20AND%20status%20%3D%20'ACTIVE'%3B&dialect=oracle)
+
 UPDATE は、この WHERE 句の**条件式の意味を変えずに**持っていくだけです。
 
 ```sql
@@ -103,6 +105,8 @@ JOIN departments d ON d.dept_id = e.dept_id
 WHERE d.closed = 1
   AND e.status = 'ACTIVE';
 ```
+
+[この SELECT を貼った状態で SQLMegane を開く（「更新文を作る」で対象表とキーを選ぶとキー IN 形を出します）](https://selene-nyx-ai.github.io/sqlmegane/#sql=SELECT%20e.emp_id%2C%20e.name%2C%20d.dept_name%0AFROM%20employees%20e%0AJOIN%20departments%20d%20ON%20d.dept_id%20%3D%20e.dept_id%0AWHERE%20d.closed%20%3D%201%0A%20%20AND%20e.status%20%3D%20'ACTIVE'%3B&dialect=oracle)
 
 対象表が `employees`、キーが `emp_id` なら、DELETE はこうなります。
 
@@ -232,6 +236,8 @@ node cli/sqlmegane.mjs convert --to delete --dialect oracle --target employees -
 ```
 【警告】Oracle 21c 以前では使えない結合 DML 構文: Oracle 21c 以前にはこの結合更新の形はありません。EXISTS 形か MERGE を使ってください。
 ```
+
+[冒頭の SQL を Oracle 方言で解析する（SQLMegane）](https://selene-nyx-ai.github.io/sqlmegane/#sql=UPDATE%20employees%20e%0ASET%20status%20%3D%20'LEFT'%0AFROM%20departments%20d%0AWHERE%20e.dept_id%20%3D%20d.dept_id%0A%20%20AND%20d.closed%20%3D%201%3B&dialect=oracle)
 
 ## まとめ
 

@@ -64,6 +64,8 @@ SELECT COUNT(*) FROM m_users WHERE last_login < '2024-01-01';
 UPDATE m_users SET status = 'INACTIVE';
 ```
 
+[この SQL で試す（SQLMegane、方言: MySQL。ブラウザ内で解析、外部送信なし）](https://selene-nyx-ai.github.io/sqlmegane/#sql=UPDATE%20m_users%20SET%20status%20%3D%20'INACTIVE'%3B&dialect=mysql)
+
 > UPDATE: `m_users` の全行の `status` を 'INACTIVE' に更新します
 >
 > ⚠ 条件なし＝全行が対象です。WHERE句が無いため、絞り込みは一切かかりません。
@@ -78,6 +80,8 @@ UPDATE m_users SET status = 'INACTIVE';
 UPDATE m_users SET status = 'INACTIVE' WHERE 1=1;
 ```
 
+[この SQL で試す（SQLMegane、方言: MySQL。ブラウザ内で解析、外部送信なし）](https://selene-nyx-ai.github.io/sqlmegane/#sql=UPDATE%20m_users%20SET%20status%20%3D%20'INACTIVE'%20WHERE%201%3D1%3B&dialect=mysql)
+
 > 【危険】WHERE句が「1=1」や「'a'='a'」のように常に真となる条件だけで構成されている、または他の条件とトップレベルのORでつながっています（「X OR 1=1」はXの内容にかかわらず常に真になります）。事実上WHERE句がないのと同じで、全行が対象になります。
 
 WHERE句がちゃんと書けている場合は、対象範囲が日本語の一文になります。
@@ -85,6 +89,8 @@ WHERE句がちゃんと書けている場合は、対象範囲が日本語の一
 ```sql
 UPDATE m_users SET status = 'INACTIVE' WHERE last_login < '2024-01-01';
 ```
+
+[この SQL で試す（SQLMegane、方言: MySQL。ブラウザ内で解析、外部送信なし）](https://selene-nyx-ai.github.io/sqlmegane/#sql=UPDATE%20m_users%20SET%20status%20%3D%20'INACTIVE'%20WHERE%20last_login%20%3C%20'2024-01-01'%3B&dialect=mysql)
 
 > UPDATE: `m_users` のうち、`last_login` が '2024-01-01' より前である行の `status` を 'INACTIVE' に更新します
 
